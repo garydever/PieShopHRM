@@ -1,0 +1,33 @@
+﻿<nav class="navbar navbar-expand-md bg-dark navbar-dark" id="horizontal-nav">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">
+        <img class="img-responsive" id="logo" src="images/bethanylogo.png" />
+    </a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+
+            <li class="nav-item" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <NavLink class="list-group-item list-group-item-action bg-dark nav-link" href="/" Match="NavLinkMatch.All">
+                    <span class="" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="nav-item" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <NavLink class="list-group-item list-group-item-action bg-dark nav-link" href="/employeeoverview">
+                    <span class="" aria-hidden="true"></span> Employees
+                </NavLink>
+            </li>
+            <li class="nav-item" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <NavLink class="list-group-item list-group-item-action bg-dark nav-link" href="/employeeedit">
+                    <span class="" aria-hidden="true"></span> Add new employee
+                </NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>

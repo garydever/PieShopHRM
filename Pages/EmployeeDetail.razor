@@ -1,0 +1,191 @@
+﻿@page "/employeedetail/{employeeId}"
+@inherits EmployeeDetailBase
+
+    <section class="employee-detail" id="detailsLargeScreen">
+        <h1 class="page-title">Details for @Employee.FirstName @Employee.LastName</h1>
+
+        <div class="col-12 row">
+            <div class="col-2">
+                <img src="@($"https://gillcleerenpluralsight.blob.core.windows.net/person/{Employee.EmployeeId}.jpg")" class="img-responsive rounded-circle employee-detail-img" />
+            </div>
+            <div class="col-10 row">
+                <div class="col-xs-12 col-sm-8">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Employee ID</label>
+                        <div class="col-sm-8">
+                            <label type="text" class="form-control-plaintext">@Employee.EmployeeId</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">First name</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.FirstName</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Last name</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.LastName</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Birthdate</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.BirthDate.ToShortDateString()</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Email</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.Email</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Street</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.Street</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Zip</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.Zip</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">City</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.City</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Phone number</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.PhoneNumber</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Gender</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.Gender</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Smoker</label>
+                        <div class="col-sm-8">
+
+                            @if (Employee.Smoker)
+                            {
+                                <label type="text" readonly class="form-control-plaintext">Yes</label>
+                            }
+                            else
+                            {
+                                <label type="text" readonly class="form-control-plaintext">No</label>
+
+                            }
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Joined us</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.JoinedDate?.ToShortDateString()</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Left us</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@Employee.ExitDate?.ToShortDateString()</label>
+                        </div>
+                    </div>
+                </div>
+                @if (Employee.Latitude != 0 && Employee.Longitude != 0)
+                {
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="track-order-map">
+                            <Map Zoom="10" Markers="MapMarkers"></Map>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+</section>
+<section class="employee-detail" id="detailsSmallScreen">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Employee.FirstName @Employee.LastName</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Employee Id</td>
+                    <td>@Employee.EmployeeId</td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>@Employee.FirstName</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>@Employee.LastName</td>
+                </tr>
+                <tr>
+                    <td>Birthdate</td>
+                    <td>@Employee.BirthDate.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Employee.Email</td>
+                </tr>
+                <tr>
+                    <td>Street</td>
+                    <td>@Employee.Street</td>
+                </tr>
+                <tr>
+                    <td>Zip</td>
+                    <td>@Employee.Zip</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>@Employee.City</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>@Employee.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>@Employee.Gender</td>
+                </tr>
+                <tr>
+                    <td>Smoker</td>
+                    @if (Employee.Smoker)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>Hired date</td>
+                    <td>@Employee.JoinedDate?.ToShortDateString()</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
